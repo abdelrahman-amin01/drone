@@ -31,7 +31,6 @@ public class DroneServiceImpl implements DroneService {
     private DroneRepository droneRepository;
     private MedicationRepository medicationRepository;
     private ModelMapper modelMapper;
-    private ModelMapper skippedModelMapper;
 
 
     @Override
@@ -112,7 +111,7 @@ public class DroneServiceImpl implements DroneService {
 
 
     @Scheduled(fixedDelay = 60000, initialDelay = 1000)
-    public void increaseVcForeachUser() {
+    public void logBatteryLevel() {
         List<Drone> droneList = droneRepository.findAll();
         droneList.forEach(drone -> log.info("The battery capacity for drone with id:\"{}\" is:{}%", drone.getId(), drone.getBatteryCapacity()));
     }
