@@ -6,7 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
@@ -23,9 +24,11 @@ public class Drone implements Serializable {
     @Enumerated(value = EnumType.STRING)
     private DroneModel model;
 
-    @Size(max = 500)
+    @Max(500)
     private Double weightLimit;
-    @Size(max = 100)
+
+    @Max( 100)
+    @NotNull
     private Double batteryCapacity;
 
     @Enumerated(value = EnumType.STRING)

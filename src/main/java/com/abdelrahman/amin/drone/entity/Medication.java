@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
@@ -22,6 +23,7 @@ public class Medication implements Serializable {
     @Pattern(regexp = "[\\w\\-]*")
     private String name;
 
+    @NotNull
     private Double weight;
 
     private Byte[] image;
